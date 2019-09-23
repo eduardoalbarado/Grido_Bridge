@@ -101,7 +101,7 @@ namespace GridoPuente
 
                 //String query = "select * from CLIPUNTOSVTA";
                 //String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
-                String query = "SELECT [PUNTO] as PUNTO ,a.[CLIENTE] as CODIGO ,[FREEZER]  ,D.[LOCDESCRIP] LOCALIDAD ,trim([PUNDIRECCION]) DIRECCION ,trim([PUNTELEFONO]) TELEFONO ,trim([PUNCONTACTO]) CONTACTO ,trim([RUBDESCRIP]) RUBRO ,trim([CANDESCRIP]) CANAL ,a.[VENDEDOR] as VENDEDOR 	  , trim(e.[CLINOMBRE]) NOMBRECLIENTE 	  , trim(e.[CLICUIT]) CUIT    FROM [gestion].[dbo].[CLIPUNTOSVTA] a   left join  [gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO]   left join  [gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL]   left join  [gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD] left join [gestion].[dbo].[CLIENTES] e on e.CLIENTE=a.CLIENTE";
+                String query = "SELECT [PUNTO] as PUNTO ,a.[CLIENTE] as CODIGO ,[FREEZER]  ,D.[LOCDESCRIP] LOCALIDAD ,ltrim(rtrim([PUNDIRECCION])) DIRECCION ,ltrim(rtrim([PUNTELEFONO])) TELEFONO ,ltrim(rtrim([PUNCONTACTO])) CONTACTO ,ltrim(rtrim([RUBDESCRIP])) RUBRO ,ltrim(rtrim([CANDESCRIP])) CANAL ,a.[VENDEDOR] as VENDEDOR 	  , ltrim(rtrim(e.[CLINOMBRE])) NOMBRECLIENTE 	  , ltrim(rtrim(e.[CLICUIT])) CUIT    FROM [gestion].[dbo].[CLIPUNTOSVTA] a   left join  [gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO]   left join  [gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL]   left join  [gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD] left join [gestion].[dbo].[CLIENTES] e on e.CLIENTE=a.CLIENTE";
 
                 SqlConnection con = new SqlConnection(str);
 
@@ -145,7 +145,7 @@ namespace GridoPuente
 
                 //String query = "select * from CLIPUNTOSVTA";
                 //String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
-                String query = "select d.articulo as ID, TRIM(a.artdescrip) as NOMBRE_PRODUCTO, d.preimporte as PRECIO_UNIDAD, a.ARTPRECIONORMAL1 as PRECIO_SEGUERIDO from detcanales d inner join articulos a on(d.articulo=a.articulo) where  d.canal=1 and isnull(d.prefechabaja,0)=0";
+                String query = "select d.articulo as ID, ltrim(rtrim(a.artdescrip)) as NOMBRE_PRODUCTO, d.preimporte as PRECIO_UNIDAD, a.ARTPRECIONORMAL1 as PRECIO_SEGUERIDO from detcanales d inner join articulos a on(d.articulo=a.articulo) where  d.canal=1 and isnull(d.prefechabaja,0)=0";
 
                 SqlConnection con = new SqlConnection(str);
 

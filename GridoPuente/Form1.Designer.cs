@@ -79,8 +79,8 @@
             this.textBoxString.Name = "textBoxString";
             this.textBoxString.Size = new System.Drawing.Size(486, 20);
             this.textBoxString.TabIndex = 4;
-            this.textBoxString.Text = "Server=.\\\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResul" +
-    "tSets=true; Integrated Security=true";
+            this.textBoxString.Text = "Server=.\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResult" +
+    "Sets=true; Integrated Security=true";
             // 
             // Form1
             // 
