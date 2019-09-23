@@ -56,7 +56,7 @@ namespace GridoPuente
 
             {
 
-                String str = "Server=.\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResultSets=true; Integrated Security=true";
+                String str = textBoxString.Text;
 
                 //String query = "select * from CLIPUNTOSVTA";
                 String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
@@ -97,7 +97,7 @@ namespace GridoPuente
 
             {
 
-                String str = "Server=.\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResultSets=true; Integrated Security=true";
+                String str = textBoxString.Text;
 
                 //String query = "select * from CLIPUNTOSVTA";
                 //String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
@@ -141,7 +141,7 @@ namespace GridoPuente
 
             {
 
-                String str = "Server=.\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResultSets=true; Integrated Security=true";
+                String str = textBoxString.Text;
 
                 //String query = "select * from CLIPUNTOSVTA";
                 //String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
