@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net;
+using System.Collections.Specialized;
+using System.Configuration;
 
 namespace GridoPuente
 {
@@ -21,7 +25,11 @@ namespace GridoPuente
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string valueconnectionstring = Properties.Settings.Default.connectionstring;
+            textBoxString.Text = valueconnectionstring;
 
+            string valueurlapi = Properties.Settings.Default.urlapi;
+            Apitext.Text = valueurlapi;
         }
 
 
@@ -114,11 +122,35 @@ namespace GridoPuente
 
                 string json = JsonConvert.SerializeObject(dt, Formatting.Indented);
                 textBox1.Text = json;
-                
+               
+                con.Close();
 
                 MessageBox.Show("connect with sql server");
 
-                con.Close();
+                
+                string address = "http://cacuy.dyndns.org/mitablero/apirest.aspx";
+                string jsonData = json;
+                //string jsonResponse = "";
+                try
+                {
+                    using (WebClient WC = new WebClient())
+                    {
+                        NameValueCollection requestParameters = new NameValueCollection();
+                        requestParameters.Add("Tipo", "uploadclientes");
+                        requestParameters.Add("MyJSON", jsonData);
+                        //WC.Headers["Content-type"] = "application/json";
+                        byte[] jsonResponse = WC.UploadValues(address, requestParameters);
+                        string responseBody = Encoding.UTF8.GetString(jsonResponse);
+                        MessageBox.Show(responseBody);
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Error post");
+                    throw;
+                }
+
+                
 
             }
 
@@ -176,5 +208,6 @@ namespace GridoPuente
 
             }
         }
+
     }
 }

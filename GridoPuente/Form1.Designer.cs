@@ -33,11 +33,12 @@
             this.bot_clientes = new System.Windows.Forms.Button();
             this.bot_productos = new System.Windows.Forms.Button();
             this.textBoxString = new System.Windows.Forms.TextBox();
+            this.Apitext = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 44);
+            this.button1.Location = new System.Drawing.Point(12, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -47,29 +48,29 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 71);
+            this.textBox1.Location = new System.Drawing.Point(12, 97);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(486, 211);
+            this.textBox1.Size = new System.Drawing.Size(486, 185);
             this.textBox1.TabIndex = 1;
             // 
             // bot_clientes
             // 
-            this.bot_clientes.Location = new System.Drawing.Point(103, 44);
+            this.bot_clientes.Location = new System.Drawing.Point(103, 68);
             this.bot_clientes.Name = "bot_clientes";
             this.bot_clientes.Size = new System.Drawing.Size(120, 23);
             this.bot_clientes.TabIndex = 2;
-            this.bot_clientes.Text = "ClientesProduccion";
+            this.bot_clientes.Text = "Clientes";
             this.bot_clientes.UseVisualStyleBackColor = true;
             this.bot_clientes.Click += new System.EventHandler(this.bot_clientes_Click);
             // 
             // bot_productos
             // 
-            this.bot_productos.Location = new System.Drawing.Point(242, 44);
+            this.bot_productos.Location = new System.Drawing.Point(242, 68);
             this.bot_productos.Name = "bot_productos";
             this.bot_productos.Size = new System.Drawing.Size(120, 23);
             this.bot_productos.TabIndex = 3;
-            this.bot_productos.Text = "Productos Dev";
+            this.bot_productos.Text = "Productos";
             this.bot_productos.UseVisualStyleBackColor = true;
             this.bot_productos.Click += new System.EventHandler(this.bot_productos_Click);
             // 
@@ -79,14 +80,20 @@
             this.textBoxString.Name = "textBoxString";
             this.textBoxString.Size = new System.Drawing.Size(486, 20);
             this.textBoxString.TabIndex = 4;
-            this.textBoxString.Text = "Server=.\\SQLEXPRESS;Database=GESTION;Trusted_Connection=True;MultipleActiveResult" +
-    "Sets=true; Integrated Security=true";
+            // 
+            // Apitext
+            // 
+            this.Apitext.Location = new System.Drawing.Point(12, 38);
+            this.Apitext.Name = "Apitext";
+            this.Apitext.Size = new System.Drawing.Size(486, 20);
+            this.Apitext.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 294);
+            this.Controls.Add(this.Apitext);
             this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.bot_productos);
             this.Controls.Add(this.bot_clientes);
@@ -107,6 +114,7 @@
         private System.Windows.Forms.Button bot_clientes;
         private System.Windows.Forms.Button bot_productos;
         private System.Windows.Forms.TextBox textBoxString;
+        private System.Windows.Forms.TextBox Apitext;
     }
 }
 
