@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.bot_clientes = new System.Windows.Forms.Button();
             this.bot_productos = new System.Windows.Forms.Button();
             this.textBoxString = new System.Windows.Forms.TextBox();
             this.Apitext = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ConsoleBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -48,7 +51,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 97);
+            this.textBox1.Location = new System.Drawing.Point(10, 170);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(486, 185);
@@ -88,11 +91,29 @@
             this.Apitext.Size = new System.Drawing.Size(486, 20);
             this.Apitext.TabIndex = 5;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // ConsoleBox
+            // 
+            this.ConsoleBox.BackColor = System.Drawing.SystemColors.InfoText;
+            this.ConsoleBox.ForeColor = System.Drawing.Color.Lime;
+            this.ConsoleBox.Location = new System.Drawing.Point(12, 97);
+            this.ConsoleBox.Multiline = true;
+            this.ConsoleBox.Name = "ConsoleBox";
+            this.ConsoleBox.Size = new System.Drawing.Size(486, 60);
+            this.ConsoleBox.TabIndex = 6;
+            this.ConsoleBox.Text = "...";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 294);
+            this.ClientSize = new System.Drawing.Size(508, 367);
+            this.Controls.Add(this.ConsoleBox);
             this.Controls.Add(this.Apitext);
             this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.bot_productos);
@@ -115,6 +136,8 @@
         private System.Windows.Forms.Button bot_productos;
         private System.Windows.Forms.TextBox textBoxString;
         private System.Windows.Forms.TextBox Apitext;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox ConsoleBox;
     }
 }
 

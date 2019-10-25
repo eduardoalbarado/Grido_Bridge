@@ -104,8 +104,9 @@ namespace GridoPuente
             try
 
             {
-
+                
                 String str = textBoxString.Text;
+                AddEntry("Connection to DB");
 
                 //String query = "select * from CLIPUNTOSVTA";
                 //String query = "SELECT TOP 1000 [PUNTO] ,[CLIENTE],[FREEZER], D.[LOCDESCRIP],[PUNDIRECCION],[PUNTELEFONO],[PUNCONTACTO],[RUBDESCRIP],[CANDESCRIP],[ZONA],[VENDEDOR],[ACTIVO]FROM[gestion].[dbo].[CLIPUNTOSVTA] a left join[gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO] left join[gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL] left join[gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD]";
@@ -124,13 +125,13 @@ namespace GridoPuente
                 textBox1.Text = json;
                
                 con.Close();
+                AddEntry("Retriving Customers");
 
-                MessageBox.Show("connect with sql server");
 
-                
-                string address = "http://cacuy.dyndns.org/mitablero/apirest.aspx";
+                string address = "http://api.com/mitablero/apirest.aspx";
                 string jsonData = json;
                 //string jsonResponse = "";
+                ConsoleBox.Text = ConsoleBox.Text + DateTime.Now + " Sending data" + "\n\r" + Environment.NewLine;
                 try
                 {
                     using (WebClient WC = new WebClient())
@@ -141,12 +142,12 @@ namespace GridoPuente
                         //WC.Headers["Content-type"] = "application/json";
                         byte[] jsonResponse = WC.UploadValues(address, requestParameters);
                         string responseBody = Encoding.UTF8.GetString(jsonResponse);
-                        MessageBox.Show(responseBody);
+                        AddEntry("API Response (" + responseBody + ")");
                     }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Error post");
+                    AddEntry("API Error post");
                     throw;
                 }
 
@@ -157,14 +158,21 @@ namespace GridoPuente
             catch (Exception es)
 
             {
-
-                MessageBox.Show(es.Message);
+                AddEntry(es.Message);
+                
 
 
 
             }
 
         }
+
+        void AddEntry(string message) {
+            ConsoleBox.Text = ConsoleBox.Text + DateTime.Now + " " + message + Environment.NewLine;
+            ConsoleBox.ScrollToCaret();
+        }
+
+
 
         private void bot_productos_Click(object sender, EventArgs e)
         {
@@ -209,5 +217,9 @@ namespace GridoPuente
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            bot_clientes_Click(null,null);
+        }
     }
 }
