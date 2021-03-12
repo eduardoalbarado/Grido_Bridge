@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.bot_clientes = new System.Windows.Forms.Button();
             this.bot_productos = new System.Windows.Forms.Button();
@@ -37,21 +36,12 @@
             this.Apitext = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ConsoleBox = new System.Windows.Forms.TextBox();
+            this.Todo = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 170);
+            this.textBox1.Location = new System.Drawing.Point(10, 242);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(486, 185);
@@ -94,7 +84,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
+            this.timer1.Interval = 90000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ConsoleBox
@@ -104,22 +94,33 @@
             this.ConsoleBox.Location = new System.Drawing.Point(12, 97);
             this.ConsoleBox.Multiline = true;
             this.ConsoleBox.Name = "ConsoleBox";
-            this.ConsoleBox.Size = new System.Drawing.Size(486, 60);
+            this.ConsoleBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ConsoleBox.Size = new System.Drawing.Size(486, 139);
             this.ConsoleBox.TabIndex = 6;
             this.ConsoleBox.Text = "...";
+            // 
+            // Todo
+            // 
+            this.Todo.Location = new System.Drawing.Point(387, 68);
+            this.Todo.Name = "Todo";
+            this.Todo.Size = new System.Drawing.Size(75, 23);
+            this.Todo.TabIndex = 8;
+            this.Todo.Text = "Todo";
+            this.Todo.UseVisualStyleBackColor = true;
+            this.Todo.Click += new System.EventHandler(this.Todo_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 367);
+            this.ClientSize = new System.Drawing.Size(508, 448);
+            this.Controls.Add(this.Todo);
             this.Controls.Add(this.ConsoleBox);
             this.Controls.Add(this.Apitext);
             this.Controls.Add(this.textBoxString);
             this.Controls.Add(this.bot_productos);
             this.Controls.Add(this.bot_clientes);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Loader";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -129,8 +130,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button bot_clientes;
         private System.Windows.Forms.Button bot_productos;
@@ -138,6 +137,7 @@
         private System.Windows.Forms.TextBox Apitext;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox ConsoleBox;
+        private System.Windows.Forms.Button Todo;
     }
 }
 
