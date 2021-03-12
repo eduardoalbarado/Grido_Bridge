@@ -78,7 +78,7 @@ namespace GridoPuente
         void SyncProducts()
         {
             string query = "select d.articulo as ID, ltrim(rtrim(a.artdescrip)) as NOMBRE_PRODUCTO, d.preimporte as PRECIO_UNIDAD, a.ARTPRECIONORMAL1 as PRECIO_SEGUERIDO from detcanales d inner join articulos a on(d.articulo=a.articulo) where  d.canal=1 and isnull(d.prefechabaja,0)=0";
-            Sync(query, "Customer", "uploadproductos");
+            Sync(query, "Products", "uploadproductos");
         }
 
 
