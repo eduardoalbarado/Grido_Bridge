@@ -84,7 +84,7 @@ namespace GridoPuente
 
         void SyncCustomer()
         {
-            string query = "SELECT [PUNTO] as PUNTO ,a.[CLIENTE] as CODIGO ,[FREEZER]  ,D.[LOCDESCRIP] LOCALIDAD ,ltrim(rtrim([PUNDIRECCION])) DIRECCION ,ltrim(rtrim([PUNTELEFONO])) TELEFONO ,ltrim(rtrim([PUNCONTACTO])) CONTACTO ,ltrim(rtrim([RUBDESCRIP])) RUBRO ,ltrim(rtrim([CANDESCRIP])) CANAL ,a.[VENDEDOR] as VENDEDOR 	  , ltrim(rtrim(e.[CLINOMBRE])) NOMBRECLIENTE 	  , ltrim(rtrim(e.[CLICUIT])) CUIT    FROM [gestion].[dbo].[CLIPUNTOSVTA] a   left join  [gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO]   left join  [gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL]   left join  [gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD] left join [gestion].[dbo].[CLIENTES] e on e.CLIENTE=a.CLIENTE";
+            string query = "SELECT [PUNTO] as PUNTO ,a.[CLIENTE] as CODIGO ,[FREEZER]  ,D.[LOCDESCRIP] LOCALIDAD ,ltrim(rtrim([PUNDIRECCION])) DIRECCION ,ltrim(rtrim([PUNTELEFONO])) TELEFONO ,ltrim(rtrim([PUNCONTACTO])) CONTACTO ,ltrim(rtrim([RUBDESCRIP])) RUBRO ,ltrim(rtrim([CANDESCRIP])) CANAL ,a.[VENDEDOR] as VENDEDOR 	  , ltrim(rtrim(e.[CLINOMBRE])) NOMBRECLIENTE 	  , ltrim(rtrim(e.[CLICUIT])) CUIT, CASE a.[ACTIVO] WHEN 'SI' THEN 1 ELSE 0 END AS ACTIVO FROM [gestion].[dbo].[CLIPUNTOSVTA] a   left join  [gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO]   left join  [gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL]   left join  [gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD] left join [gestion].[dbo].[CLIENTES] e on e.CLIENTE=a.CLIENTE";
             Sync(query, "Customer", "uploadclientes");
         }
 
@@ -101,8 +101,6 @@ namespace GridoPuente
 
                 try
                 {
-
-                    query = "SELECT [PUNTO] as PUNTO ,a.[CLIENTE] as CODIGO ,[FREEZER]  ,D.[LOCDESCRIP] LOCALIDAD ,ltrim(rtrim([PUNDIRECCION])) DIRECCION ,ltrim(rtrim([PUNTELEFONO])) TELEFONO ,ltrim(rtrim([PUNCONTACTO])) CONTACTO ,ltrim(rtrim([RUBDESCRIP])) RUBRO ,ltrim(rtrim([CANDESCRIP])) CANAL ,a.[VENDEDOR] as VENDEDOR 	  , ltrim(rtrim(e.[CLINOMBRE])) NOMBRECLIENTE 	  , ltrim(rtrim(e.[CLICUIT])) CUIT    FROM [gestion].[dbo].[CLIPUNTOSVTA] a   left join  [gestion].[dbo].[RUBROS] b on b.[RUBRO]=a.[RUBRO]   left join  [gestion].[dbo].[CANALES] c on c.[CANAL]=a.[CANAL]   left join  [gestion].[dbo].[LOCALIDADES] d on d.[LOCALIDAD]=a.[LOCALIDAD] left join [gestion].[dbo].[CLIENTES] e on e.CLIENTE=a.CLIENTE";
 
                     SqlConnection con = new SqlConnection(str);
 
